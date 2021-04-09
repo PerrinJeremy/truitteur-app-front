@@ -45,7 +45,7 @@ export class RedactionComponent implements OnInit {
   }
 
   pictureLoaded(name: string) {
-    this.image = 'http://localhost:80/upload/' + name;
+    this.image = 'https://whispering-river-67114.herokuapp.com/upload/' + name;
     this.isImageLoaded = true
   }
 }

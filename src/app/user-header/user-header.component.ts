@@ -78,7 +78,7 @@ export class UserHeaderComponent implements OnInit {
   }
 
   pictureLoaded(name: string) {
-    this.banner = 'http://localhost:80/upload/' + name;
+    this.banner = 'https://whispering-river-67114.herokuapp.com/upload/' + name;
     this.isImageLoaded = true
     this.user.banner = this.banner
     this.userService.updateUser(this.user).subscribe((user) => {
@@ -108,7 +108,7 @@ export class UserHeaderComponent implements OnInit {
   }
 
   profilePicLoaded(name: string) {
-    this.picture = 'http://localhost:80/upload/' + name;
+    this.picture = 'https://whispering-river-67114.herokuapp.com/upload/' + name;
     this.user.picture = this.picture
     this.userService.updateUser(this.user).subscribe((user) => {
       this.tokenStorage.saveUser(user)
