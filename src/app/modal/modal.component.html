@@ -7,13 +7,13 @@
             <app-redaction (publishedEvent)="closeModal()"></app-redaction>
         </div>
         <div *ngIf="isRegister">
-            <app-signup (registeredEvent)="openModal('complete')"></app-signup>
+            <app-signup (registeredEvent)="closeModal()"></app-signup>
         </div>
         <div *ngIf="isLogin">
             <app-login (loggedInEvent)="closeModal()"></app-login>
         </div>
         <div *ngIf="isComplete">
-            <app-login (completeEvent)="closeModal()"></app-login>
+            <app-complete-profile (completeEvent)="closeModal()"></app-complete-profile>
         </div>
     </div>
 </div>
