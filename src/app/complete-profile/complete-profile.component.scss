@@ -1,6 +1,7 @@
 .page-overlay {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba($color: #000000, $alpha: 0.5);
@@ -22,12 +23,20 @@
             fill: rgb(29, 161, 242);
         }
     }
+    .tag-input {
+        margin: 0 20px;
+    }
+    .button-contaier {
+        padding: 10px 20px;
+    }
     .form-container {
         background-color: white;
         border-radius: 20px;
         .header-form {
             font-size: 24px;
             font-weight: 700;
+            margin-left: 20px;
+            margin-top: 10px;
         }
     }
     form {

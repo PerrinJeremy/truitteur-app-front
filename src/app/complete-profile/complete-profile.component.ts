@@ -13,7 +13,7 @@ export class CompleteComponent implements OnInit {
 
   tag = new FormControl('');
 
-  @Output() registeredEvent = new EventEmitter()
+  @Output() completeEvent = new EventEmitter()
 
   constructor(private userService: UserService, private tokenStorage: TokenStorageService, private router: Router) { }
 
@@ -26,7 +26,7 @@ export class CompleteComponent implements OnInit {
     this.userService.updateUser(user).subscribe(
       (user) => {
         this.tokenStorage.saveUser(user)
-        this.registeredEvent.emit(true)
+        this.completeEvent.emit(true)
         this.router.navigateByUrl('/')
       },
       err => console.log(err)
