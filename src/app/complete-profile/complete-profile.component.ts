@@ -12,7 +12,7 @@ import { UserService } from '../services/user.service';
 export class CompleteComponent implements OnInit {
 
   tag = new FormControl('');
-  
+
   @Output() registeredEvent = new EventEmitter()
 
   constructor(private userService: UserService, private tokenStorage: TokenStorageService, private router: Router) { }
