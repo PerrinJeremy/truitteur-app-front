@@ -10,7 +10,7 @@ import { TokenStorageService } from './token-storage.service';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-    private url = 'http://localhost:80/auth/';  // URL to web api
+    private url = 'https://whispering-river-67114.herokuapp.com/auth/';  // URL to web api
 
     httpOptions = {
         headers: new HttpHeaders({

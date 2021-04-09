@@ -10,7 +10,7 @@ import { TokenStorageService } from './token-storage.service';
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-    private url = 'http://localhost:80/user/';  // URL to web api
+    private url = 'https://whispering-river-67114.herokuapp.com/user/';  // URL to web api
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -40,7 +40,7 @@ export class UserService {
                 'Authorization': 'bearer ' + token
             })
         };
-        return this.http.get<User>('http://localhost:80/tag/' + name, httpOptions)
+        return this.http.get<User>('https://whispering-river-67114.herokuapp.com/tag/' + name, httpOptions)
     }
     updateUser(user: User): Observable<User> {
         let token = this.tokenStorageService.getToken();
@@ -106,6 +106,6 @@ export class UserService {
         let caption = this.tokenStorageService.getStoredUser().id + image.name;
         formData.append('caption', caption);
         formData.append('file', image);
-        return this.http.post<any>('http://localhost:80/upload/', formData);
+        return this.http.post<any>('https://whispering-river-67114.herokuapp.com/upload/', formData);
     }
 }

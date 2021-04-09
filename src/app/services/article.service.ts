@@ -9,7 +9,7 @@ import { Article } from '../article';
 @Injectable({ providedIn: 'root' })
 export class ArticleService {
 
-    private url = 'http://localhost:80/articles';  // URL to web api
+    private url = 'https://whispering-river-67114.herokuapp.com/articles';  // URL to web api
 
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })

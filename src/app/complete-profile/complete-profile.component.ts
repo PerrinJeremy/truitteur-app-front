@@ -7,7 +7,7 @@ import { User } from '../user';
 import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-signup',
+  selector: 'app-complete-profile',
   templateUrl: './complete-profile.component.html',
   styleUrls: ['./complete-profile.component.scss']
 })
