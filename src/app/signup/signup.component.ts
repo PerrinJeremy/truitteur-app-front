@@ -35,7 +35,6 @@ export class SignupComponent implements OnInit {
         this.tokenStorage.saveUser(user);
         this.isRegisterFailed = false;
         this.registeredEvent.emit(true)
-        this.router.navigateByUrl('/complete-profile')
       },
       err => console.log(err)
     );

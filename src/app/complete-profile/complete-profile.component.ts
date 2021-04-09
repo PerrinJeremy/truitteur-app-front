@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { TokenStorageService } from '../services/token-storage.service';
 import { Router } from '@angular/router';
-import { User } from '../user';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -14,6 +12,8 @@ import { UserService } from '../services/user.service';
 export class CompleteComponent implements OnInit {
 
   tag = new FormControl('');
+  
+  @Output() registeredEvent = new EventEmitter()
 
   constructor(private userService: UserService, private tokenStorage: TokenStorageService, private router: Router) { }
 
@@ -26,6 +26,7 @@ export class CompleteComponent implements OnInit {
     this.userService.updateUser(user).subscribe(
       (user) => {
         this.tokenStorage.saveUser(user)
+        this.registeredEvent.emit(true)
         this.router.navigateByUrl('/')
       },
       err => console.log(err)

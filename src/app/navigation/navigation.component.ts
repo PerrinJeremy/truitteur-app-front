@@ -4,7 +4,6 @@ import { UserService } from '../services/user.service';
 
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
-import { Overlay } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-navigation',
