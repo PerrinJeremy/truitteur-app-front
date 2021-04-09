@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  @Output() registeredInEvent = new EventEmitter()
+  @Output() registeredEvent = new EventEmitter()
   
   form = new FormGroup({
     name: new FormControl(''),
@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
         this.tokenStorage.saveToken(user.token);
         this.tokenStorage.saveUser(user);
         this.isRegisterFailed = false;
-        this.registeredInEvent.emit(true)
+        this.registeredEvent.emit(true)
         this.router.navigateByUrl('/complete-profile')
       },
       err => console.log(err)

@@ -24,6 +24,8 @@ export class ModalComponent implements OnInit {
       this.isRegister = true
     } else if (type == 'publish') {
       this.isPublish = true
+    } else if (type == 'complete') {
+      this.isPublish = true
     }
   }
 
