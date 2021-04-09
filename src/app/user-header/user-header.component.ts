@@ -51,7 +51,7 @@ export class UserHeaderComponent implements OnInit {
     this.id = id;
     this.name = name;
     this.tag = tag;
-    this.banner = banner ? 'https ://img.freepik.com/free-photo/empty-sea-beach-background_74190-313.jpg?size=626&ext=jpg&ga=GA1.2.1588707983.1617321600' : banner;
+    this.banner = banner ? 'https://img.freepik.com/free-photo/empty-sea-beach-background_74190-313.jpg?size=626&ext=jpg&ga=GA1.2.1588707983.1617321600' : banner;
     this.picture = picture ? 'https://i.pinimg.com/736x/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg' : picture;
     this.followers = followers;
     this.following = following;
