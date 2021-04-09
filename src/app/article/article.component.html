@@ -1,0 +1,37 @@
+<div class="card-article">
+    <div class="avatar">
+        <img src="{{picture}}">
+    </div>
+    <div class="card-content">
+        <div class="header-line" routerLink="/user/{{tag}}">
+            <div class="header-card">
+                <span class="name">{{name}}</span>
+                <span class="tag">@{{tag}}</span>
+                <span>.</span>
+                <span class="date"><time [dateTime]="article.createdAt">{{computedTime}}</time></span>
+            </div>
+            <i *ngIf="id===user.id && isEditable == false" (click)="editArticle()" class="fas fa-edit"></i>
+        </div>
+        <div class="body-card">
+            <div *ngIf="isEditable" class="edition">
+                <textarea [(ngModel)]="text" class="form-control"></textarea>
+                <div class="publish">
+                    <button class="save-button btn" (click)="saveModif()">Enregitrer</button>
+                </div>
+            </div>
+            <p *ngIf="isEditable == false">{{text}}
+            </p>
+        </div>
+        <div class="image-container">
+            <img src={{image}} alt="">
+        </div>
+        <div class="footer-card">
+            <div class="likes">
+                <div>
+                    <i (click)="likeHandle()" [ngClass]="liked ? 'fas' : 'far'" class="fa-heart"></i>
+                </div>
+                <p class="count">{{likes}}</p>
+            </div>
+        </div>
+    </div>
+</div>

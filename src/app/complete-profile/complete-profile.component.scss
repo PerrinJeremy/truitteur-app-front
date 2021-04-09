@@ -1,0 +1,51 @@
+.page-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .close {
+        position: relative;
+        top: 10px;
+        left: 10px;
+        font-size: 32px;
+        color: rgb(29, 161, 242);
+        padding: 0;
+        line-height: 24px;
+        border: 0;
+        background-color: rgba($color: #000000, $alpha: 0);
+        svg {
+            width: 24px;
+            fill: rgb(29, 161, 242);
+        }
+    }
+    .form-container {
+        background-color: white;
+        border-radius: 20px;
+        .header-form {
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+    form {
+        padding: 50px;
+        padding-top: 11px;
+        position: relative;
+        margin: 0 auto;
+        width: 450px;
+        input {
+            margin: 10px 0;
+        }
+    }
+    .register-button {
+        margin: 5px 0;
+        background-color: rgb(29, 161, 242);
+        color: white;
+        border-radius: 19px;
+        font-weight: 700;
+        width: 100%;
+    }
+}

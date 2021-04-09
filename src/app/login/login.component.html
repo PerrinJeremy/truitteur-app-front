@@ -1,0 +1,12 @@
+<form [formGroup]="form" class="form">
+    <p class="header-form">
+        Connectez-vous
+    </p>
+    <div>
+        <input type="email" formControlName="email" placeholder="Email" class="form-control" />
+    </div>
+    <div>
+        <input type="password" formControlName="password" placeholder="Password" class="form-control" />
+    </div>
+    <button (click)='onSubmit()' type="submit" class="register-button btn" type="button">Se connecter</button>
+</form>

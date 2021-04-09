@@ -1,0 +1,33 @@
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="nav-container">
+            <a class="navbar-brand logo-container" href="/"><img class="logo" src="../../assets/logo.png" alt=""></a>
+            <div class="links">
+                <div>
+                    <a class="" href="/">Accueil</a>
+                </div>
+                <div>
+                    <a class="" href="/user/{{tag}}">Profile</a>
+                </div>
+            </div>
+            <div *ngIf="isAuthenticated" class="publish-button">
+                <a class="login-button btn" (click)="openModal('publish')">
+                    <span>Publier</span>
+                </a>
+            </div>
+            <div *ngIf="isAuthenticated == false" class="connection-buttons">
+                <a class="login-button btn" (click)="openModal('login')">
+                    <span>Se connecter</span>
+                </a>
+                <a class="register-button btn" (click)="openModal('register')">
+                    <span>S'inscrire</span>
+                </a>
+            </div>
+            <div *ngIf="isAuthenticated" class="connection-buttons">
+                <a class="login-button btn" (click)="logout()">
+                    <span>Se déconnecter</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,50 @@
+.user-follow {
+    display: inline-flex;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ebeef0;
+    border-top: 0;
+}
+
+.follow-button {
+    display: flex;
+    align-content: flex-end;
+    border: 1px solid rgb(29, 161, 242);
+    margin: 5px;
+    color: rgb(29, 161, 242);
+    background-color: white;
+    border-radius: 19px;
+    font-weight: 700;
+}
+
+.followed-button {
+    border: 1px solid white;
+    margin: 5px;
+    background-color: rgb(29, 161, 242);
+    color: white;
+    border-radius: 19px;
+    font-weight: 700;
+}
+
+.header-card div {
+    width: max-content
+}
+
+.avatar {
+    margin: 0 5px;
+    img {
+        border-radius: 50%;
+        height: 50px;
+    }
+}
+
+.username {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}

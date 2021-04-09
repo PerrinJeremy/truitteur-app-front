@@ -1,0 +1,107 @@
+.header {
+    border-bottom: 1px solid #ebeef0;
+    padding-bottom: 20px;
+}
+
+.banner {
+    height: 250px;
+    img {
+        width: 100%;
+        height: 100%
+    }
+}
+
+.loader {
+    position: absolute;
+    margin: 10px;
+    padding: 0 5px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.inputimage {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+i {
+    font-size: 38px;
+    color: #1da1f285
+}
+
+.follow-block {
+    display: inline-flex;
+    width: 50%;
+    justify-content: space-evenly;
+    p {
+        display: flex;
+        font-weight: 700;
+    }
+}
+
+.follow-button {
+    display: flex;
+    align-content: flex-end;
+    border: 1px solid rgb(29, 161, 242);
+    margin: 5px;
+    color: rgb(29, 161, 242);
+    background-color: white;
+    border-radius: 19px;
+    font-weight: 700;
+}
+
+.followed-button {
+    border: 1px solid white;
+    margin: 5px;
+    background-color: rgb(29, 161, 242);
+    color: white;
+    border-radius: 19px;
+    font-weight: 700;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    button {
+        height: 38px;
+        display: flex;
+    }
+}
+
+.profile-pic {
+    display: inline-flex;
+    width: 100%;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: -50px;
+    padding-left: 50px;
+    .box {
+        position: absolute;
+        margin: 5px;
+        background-color: white;
+        padding: 0 5px;
+        border-radius: 5px;
+    }
+    img {
+        width: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid white;
+    }
+}
+
+.profile-container {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    .name {
+        font-size: 20px;
+        font-weight: 800;
+    }
+}

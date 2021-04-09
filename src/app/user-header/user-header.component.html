@@ -1,0 +1,33 @@
+<div class=header>
+    <div class="banner">
+        <app-image-loader class="loader" (imageLoadedEvent)="pictureLoaded($event)"></app-image-loader>
+        <img src="{{banner}}" alt="">
+    </div>
+    <div class="profile-pic">
+        <div class="box">
+            <input #imageInput type="file" id="file2" accept="image/*" class="inputimage" (change)="processPicture(imageInput)">
+            <label for="file2">
+                <i class="far fa-image"></i>
+            </label>
+        </div>
+        <img src="{{picture}}" alt="">
+        <div class="button-container">
+            <button *ngIf="isFollowed == false" class="follow-button btn" (click)="follow()" type="button">
+                <span>Suivre</span>
+            </button>
+            <button *ngIf="isFollowed" class="followed-button btn" (click)="unfollow()" type="button">
+                <span>Abonné</span>
+            </button>
+        </div>
+    </div>
+    <div class="profile-container">
+        <div>
+            <div class="name">{{name}}</div>
+            <div class="tag">@{{tag}}</div>
+        </div>
+        <div class="follow-block">
+            <p>{{followers}} abonnés</p>
+            <p>{{following.length}} abonnements</p>
+        </div>
+    </div>
+</div>

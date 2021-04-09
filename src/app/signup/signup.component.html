@@ -1,0 +1,26 @@
+<div class="page-overlay">
+    <div class="form-container">
+        <button class="close" routerLink="/"><svg viewBox="0 0 24 24">
+                <path d="M13.414 12l5.793-5.793c.39-.39.39-1.023 0-1.414s-1.023-.39-1.414 0L12 10.586 6.207 4.793c-.39-.39-1.023-.39-1.414 0s-.39 1.023 0 1.414L10.586 12l-5.793 5.793c-.39.39-.39 1.023 0 1.414.195.195.45.293.707.293s.512-.098.707-.293L12 13.414l5.793 5.793c.195.195.45.293.707.293s.512-.098.707-.293c.39-.39.39-1.023 0-1.414L13.414 12z"></path>
+            </svg></button>
+        <form [formGroup]="form" class="form">
+            <p class="header-form">
+                Créer votre compte
+            </p>
+            <div class="form-group">
+                <input type="text" formControlName="name" placeholder="Username" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="email" formControlName="email" placeholder="Email" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="password" formControlName="password" placeholder="Password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button (click)='onSubmit()' type="submit" class="register-button btn" type="button">S'inscrire</button>
+            </div>
+        </form>
+    </div>
+</div>

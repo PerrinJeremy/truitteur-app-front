@@ -1,0 +1,64 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 100%;
+    border: 1px solid #ebeef0;
+}
+
+.logo-container {
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    margin: 0 10px;
+    width: 30px;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.links {
+    margin: 20px 0;
+    padding: 0 20px;
+    a {
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.438);
+    }
+}
+
+.login-button {
+    border: 1px solid white;
+    margin: 5px;
+    background-color: rgb(29, 161, 242);
+    color: white;
+    border-radius: 19px;
+    font-weight: 700;
+}
+
+.register-button {
+    border: 1px solid rgb(29, 161, 242);
+    margin: 5px;
+    color: rgb(29, 161, 242);
+    background-color: white;
+    border-radius: 19px;
+    font-weight: 700;
+}
+
+.connection-buttons {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.publish-button {
+    display: flex;
+    a {
+        margin: 0 auto;
+    }
+}

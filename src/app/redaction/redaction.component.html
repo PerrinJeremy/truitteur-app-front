@@ -1,0 +1,17 @@
+<div class="block-readaction">
+    <div class="avatar">
+        <img src="{{user.picture}}" alt="">
+    </div>
+    <div class="redaction-container">
+        <textarea [formControl]="text" class="form-control" placeholder="Une bafouille ?" rows="5"></textarea>
+        <div class="publish">
+            <div *ngIf="isImageLoaded==false" class="image-loader">
+                <app-image-loader (imageLoadedEvent)="pictureLoaded($event)"></app-image-loader>
+            </div>
+            <div class="image-preview">
+                <img *ngIf="isImageLoaded" src={{image}} alt="">
+            </div>
+            <button class="register-button btn" (click)="publish()">Publier</button>
+        </div>
+    </div>
+</div>
