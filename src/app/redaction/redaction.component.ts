@@ -3,7 +3,6 @@ import { FormControl } from '@angular/forms';
 import { ArticleService } from '../services/article.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { User } from '../user';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-redaction',
