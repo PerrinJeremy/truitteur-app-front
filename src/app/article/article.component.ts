@@ -54,7 +54,7 @@ export class ArticleComponent implements OnInit {
     this.likes = likes;
     this.image = image;
     this.userService.getUserProfileByName(this.tag).subscribe(user => {
-      this.picture = user.picture
+      this.picture = user.picture ? 'https://i.pinimg.com/736x/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg' : user.picture;
     })
     if (this.user) { this.liked = this.user.likes.includes(this.article._id); }
     this.computeTime();
