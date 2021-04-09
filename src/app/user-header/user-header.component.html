@@ -4,8 +4,8 @@
         <img src="{{banner}}" alt="">
     </div>
     <div class="profile-pic">
-        <div class="box">
-            <input *ngIf="id===user.id" #imageInput type="file" id="file2" accept="image/*" class="inputimage" (change)="processPicture(imageInput)">
+        <div *ngIf="id===user.id" class="box">
+            <input #imageInput type="file" id="file2" accept="image/*" class="inputimage" (change)="processPicture(imageInput)">
             <label for="file2">
                 <i class="far fa-image"></i>
             </label>

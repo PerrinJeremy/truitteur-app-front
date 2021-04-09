@@ -15,11 +15,13 @@ export class ModalComponent implements OnInit {
   isRegister: boolean
   isPublish: boolean
   isComplete: boolean
+  type: string
 
   constructor(public dialogRef: MatDialogRef<ModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public matDialog: MatDialog) { }
 
   ngOnInit(): void {
     const { type } = this.data
+    this.type = type
     console.log(type);
     if (type == 'login') {
       this.isLogin = true
@@ -34,7 +36,9 @@ export class ModalComponent implements OnInit {
 
   closeModal() {
     this.dialogRef.close();
-    window.location.reload()
+    if (this.type == 'register') {
+      this.openModal('complete')
+    } else window.location.reload()
   }
 
   openModal(type: string) {
