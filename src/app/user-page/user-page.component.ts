@@ -27,7 +27,6 @@ export class UserPageComponent implements OnInit {
     this.route.params.subscribe(params=>{
       this.username = params.name
       this.userService.getUserProfileByName(this.username).subscribe((data: User) => {
-        console.log(data);
         this.account = data
       })
       this.page = 0;

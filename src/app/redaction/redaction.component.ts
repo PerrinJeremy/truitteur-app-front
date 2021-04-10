@@ -28,7 +28,6 @@ export class RedactionComponent implements OnInit {
   }
 
   publish() {
-    console.log(this.user);
     this.articleService.addArticle({
       author: {
         id: this.user.id,

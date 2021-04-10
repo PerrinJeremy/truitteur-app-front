@@ -5,6 +5,8 @@ import { User } from '../user';
 import { TokenStorageService } from '../services/token-storage.service';
 import { ArticleService } from '../services/article.service';
 import { UserService } from '../services/user.service';
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-article',
@@ -29,7 +31,8 @@ export class ArticleComponent implements OnInit {
   constructor(
     private userService: UserService,
     private tokenStorage: TokenStorageService,
-    private articleService: ArticleService) {
+    private articleService: ArticleService,
+    public matDialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -92,10 +95,19 @@ export class ArticleComponent implements OnInit {
       this.articleService.updatelikes(this.article).subscribe(() => { return }, err => console.log(err))
     }
   }
+  openModal(type: string, id: string) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.data = { type: type, id: id };
+    dialogConfig.autoFocus = true
+    const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+  }
 
   editArticle() {
     this.isEditable = !this.isEditable;
   }
+
   saveModif() {
     this.article.content = this.text;
     this.articleService.updateArticle(this.article).subscribe(() => {

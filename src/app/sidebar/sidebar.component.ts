@@ -18,10 +18,12 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     let user = this.tokenStorageService.getStoredUser()
     let following = [];
+    let id = '';
     if (user) {
       following = user.following
+      id = user.id
     }
-    this.userService.getProposalList(following).subscribe(data => { this.accounts = data.users })
+    this.userService.getProposalList(following, id).subscribe(data => { this.accounts = data.users })
   }
 
 }

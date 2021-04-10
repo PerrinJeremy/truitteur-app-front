@@ -26,9 +26,12 @@
     font-weight: 700;
 }
 
-.header-card div {
-    cursor: pointer;
-    width: max-content
+.header-card {
+    outline: 0 none;
+    div {
+        cursor: pointer;
+        width: max-content
+    }
 }
 
 .avatar {

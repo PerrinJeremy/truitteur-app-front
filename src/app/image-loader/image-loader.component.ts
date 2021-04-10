@@ -31,8 +31,7 @@ export class ImageLoaderComponent implements OnInit {
       this.selectedFile = new ImageSnippet(event.target.result, file);
 
       this.userService.uploadImage(this.selectedFile.file).subscribe(
-        (res) => {       
-          console.log(res);
+        (res) => {
           this.imageLoadedEvent.emit(res.image.filename) 
         },
         (err) => {

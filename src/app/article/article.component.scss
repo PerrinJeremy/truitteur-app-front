@@ -24,11 +24,14 @@
             justify-content: space-between;
             i {
                 font-size: 20px;
+                margin: 0 10px;
+                cursor: pointer;
             }
         }
         .header-card {
             display: inline-flex;
             cursor: pointer;
+            outline: 0 none;
             .name {
                 line-height: 20px;
                 font-weight: 700;

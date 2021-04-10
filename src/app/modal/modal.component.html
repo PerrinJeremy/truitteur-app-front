@@ -15,5 +15,14 @@
         <div *ngIf="isComplete">
             <app-complete-profile (completeEvent)="closeModal()"></app-complete-profile>
         </div>
+        <div *ngIf="isDeleteArticle" class="container-delete">
+            <div class="message">
+                <p>Etes-vous sûr de vouloir supprimer cet article ?</p>
+            </div>
+            <div class="buttons">
+                <button type="button" class="cancel-button btn" (click)=closeModal()><span _ngcontent-guv-c87="">Annuler</span></button>
+                <button type="button" class="delete-button btn" (click)=deleteArticle()><span _ngcontent-guv-c87="">Supprimer</span></button>
+            </div>
+        </div>
     </div>
 </div>

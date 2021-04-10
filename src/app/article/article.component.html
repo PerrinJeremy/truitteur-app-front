@@ -3,14 +3,17 @@
         <img src="{{picture}}">
     </div>
     <div class="card-content">
-        <div class="header-line" routerLink="/user/{{tag}}">
-            <div class="header-card">
+        <div class="header-line">
+            <div class="header-card" routerLink="/user/{{tag}}">
                 <span class="name">{{name}}</span>
                 <span class="tag">@{{tag}}</span>
                 <span>.</span>
                 <span class="date"><time [dateTime]="article.createdAt">{{computedTime}}</time></span>
             </div>
-            <i *ngIf="id===user.id && isEditable == false" (click)="editArticle()" class="fas fa-edit"></i>
+            <div *ngIf="id===user.id && isEditable == false" class="edit-buttons">
+                <i (click)="editArticle()" class="fas fa-edit"></i>
+                <i (click)="openModal('delete', article._id)" class="far fa-trash-alt"></i>
+            </div>
         </div>
         <div class="body-card">
             <div *ngIf="isEditable" class="edition">

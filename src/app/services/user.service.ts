@@ -109,7 +109,7 @@ export class UserService {
         return this.http.post<any>('https://whispering-river-67114.herokuapp.com/upload/', formData);
     }
 
-    getProposalList(following: String[]): Observable<any> {
-        return this.http.post('https://whispering-river-67114.herokuapp.com/list/', following)
+    getProposalList(following: String[], id: String): Observable<any> {
+        return this.http.post('https://whispering-river-67114.herokuapp.com/list/', { following, id })
     }
 }
