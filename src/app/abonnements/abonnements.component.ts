@@ -12,31 +12,30 @@ import { UserService } from '../services/user.service';
 })
 export class AbonnementsComponent implements OnInit {
 
-  @Input() account?: {
-    id: string,
-    name: string,
-    tag: string
-  };
+  @Input() account?: User
 
   id: string
   name: string
   tag: string
+  picture: string
   user: User
   isFollowed: boolean
 
-  constructor(private authService: AuthService,
-    private tokenStorage: TokenStorageService,
+  constructor(private tokenStorage: TokenStorageService,
     private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
     const {
-      id, tag, name
+      id, tag, name,
+      picture
     } = this.account
     this.user = this.tokenStorage.getStoredUser();
     this.id = id;
+    this.picture = picture;
     this.name = name;
     this.tag = tag;
+
     if (this.user) { this.isFollowed = this.user.following.includes(this.id); } else {
       this.isFollowed = false
     }
@@ -52,7 +51,7 @@ export class AbonnementsComponent implements OnInit {
         err => console.log(err)
       );
     } else {
-      this.router.navigateByUrl('/login')
+      this.router.navigateByUrl('/')
     }
   }
   unfollow() {

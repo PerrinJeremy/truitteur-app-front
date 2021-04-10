@@ -108,4 +108,8 @@ export class UserService {
         formData.append('file', image);
         return this.http.post<any>('https://whispering-river-67114.herokuapp.com/upload/', formData);
     }
+
+    getProposalList(following: String[]) {
+        return this.http.post(this.url + 'list/', following)
+    }
 }

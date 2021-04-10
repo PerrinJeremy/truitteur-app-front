@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,16 +23,22 @@ export class SidebarComponent implements OnInit {
     id: '03',
     name: 'Lionel Messi',
     tag: 'LeoMessi'
-  },{
-    id:'606afee0577495b23ca5838c',
+  }, {
+    id: '606afee0577495b23ca5838c',
     name: 'Jeremy',
     tag: 'jeremy'
   }]
-  
 
-  constructor() { }
+
+  constructor(private userService: UserService, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    let user = this.tokenStorageService.getStoredUser()
+    let following = [];
+    if (user) {
+      following = user.following
+    }
+    this.userService.getProposalList(following)
   }
 
 }
