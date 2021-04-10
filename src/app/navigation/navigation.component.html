@@ -1,13 +1,13 @@
 <div class="header">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="nav-container">
-            <a class="navbar-brand logo-container" href="/"><img class="logo" src="assets/logo.png" alt=""></a>
+            <a class="navbar-brand logo-container" routerLink="/"><img class="logo" src="assets/logo.png" alt=""></a>
             <div class="links">
                 <div>
-                    <a class="" href="/">Accueil</a>
+                    <a class="" routerLink="/">Accueil</a>
                 </div>
                 <div *ngIf="isAuthenticated">
-                    <a class="" href="/user/{{tag}}">Profil</a>
+                    <a class="" routerLink="/user/{{tag}}">Profil</a>
                 </div>
             </div>
             <div *ngIf="isAuthenticated" class="publish-button">
