@@ -32,7 +32,7 @@ export class AbonnementsComponent implements OnInit {
     } = this.account
     this.user = this.tokenStorage.getStoredUser();
     this.id = id;
-    this.picture = picture;
+    this.picture = picture ? picture : 'https://i.pinimg.com/736x/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg';
     this.name = name;
     this.tag = tag;
 

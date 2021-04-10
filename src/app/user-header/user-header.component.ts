@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { TokenStorageService } from '../services/token-storage.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ class ImageSnippet {
   templateUrl: './user-header.component.html',
   styleUrls: ['./user-header.component.scss']
 })
-export class UserHeaderComponent implements OnInit {
+export class UserHeaderComponent implements OnInit, OnChanges {
 
   @Input() account?: {
     id: string,
@@ -42,6 +42,13 @@ export class UserHeaderComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.setUser()
+  }
+  ngOnChanges() {
+    this.setUser()
+  }
+
+  setUser() {
     const {
       id, tag, name, followers, following,
       banner, picture

@@ -110,6 +110,6 @@ export class UserService {
     }
 
     getProposalList(following: String[]): Observable<any> {
-        return this.http.post(this.url + 'list/', following)
+        return this.http.post('https://whispering-river-67114.herokuapp.com/list/', following)
     }
 }
