@@ -18,11 +18,11 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ImageLoaderComponent } from './image-loader/image-loader.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
-import { ArticlesContainerComponent } from './articles-container/articles-container.component';
 import { PublicationComponent } from './publication/publication.component';
 import { ModalComponent } from './modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthGuardService } from './services/auth-guard.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +39,9 @@ import { AuthGuardService } from './services/auth-guard.service';
     ImageLoaderComponent,
     UserPageComponent,
     UserHeaderComponent,
-    ArticlesContainerComponent,
     PublicationComponent,
-    ModalComponent
+    ModalComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

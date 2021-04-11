@@ -20,6 +20,7 @@ export class AbonnementsComponent implements OnInit {
   picture: string
   user: User
   isFollowed: boolean
+  isAuthenticated: boolean
 
   constructor(private tokenStorage: TokenStorageService,
     private userService: UserService,
@@ -35,7 +36,7 @@ export class AbonnementsComponent implements OnInit {
     this.picture = picture ? picture : 'https://i.pinimg.com/736x/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg';
     this.name = name;
     this.tag = tag;
-
+    this.isAuthenticated = this.tokenStorage.isAuthenticated
     if (this.user) { this.isFollowed = this.user.following.includes(this.id); } else {
       this.isFollowed = false
     }

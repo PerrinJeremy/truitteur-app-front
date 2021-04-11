@@ -15,7 +15,7 @@ export class ArticlesComponent implements OnInit {
   selectedArticle: Article;
   page: number;
   username: string;
-  isAuthenticated = this.tokenService.isAuthenticated
+  isAuthenticated: boolean
 
   constructor(private articleService: ArticleService,
     private route: ActivatedRoute,
@@ -24,7 +24,7 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = this.route.snapshot.params.name
-    this.tokenService.isAuthenticated
+    this.isAuthenticated = this.tokenService.isAuthenticated
     this.page = 0;
     if (!this.username) {
       this.articleService.getArticles(this.page).subscribe((data: Article[]) => {
@@ -35,6 +35,7 @@ export class ArticlesComponent implements OnInit {
         this.articles = data
       })
     }
+
   }
 
   onSelect(article: Article): void {

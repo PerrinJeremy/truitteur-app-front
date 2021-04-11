@@ -10,7 +10,7 @@
             <span class="tag">@{{tag}}</span>
         </div>
     </div>
-    <div class="button-container">
+    <div *ngIf="isAuthenticated" class="button-container">
         <button *ngIf="isFollowed == false" class="follow-button btn" (click)="follow()" type="button">
             <span>Suivre</span>
         </button>
