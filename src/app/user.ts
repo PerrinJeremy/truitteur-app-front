@@ -9,4 +9,5 @@ export interface User {
   following: string[];
   banner: string;
   picture: string;
+  articles: number;
 }

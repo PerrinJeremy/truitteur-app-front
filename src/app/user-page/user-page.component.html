@@ -1,4 +1,11 @@
 <div class="container-articles">
+    <div class="title">
+        <div class="back-arrow" routerLink="/"><i class="fas fa-arrow-left"></i></div>
+        <div *ngIf="account" class="name-box">
+            <h2 class="name">{{account.name}}</h2>
+            <div class="counter">{{account.articles}} Publications</div>
+        </div>
+    </div>
     <app-user-header *ngIf='account' [account]="account"></app-user-header>
     <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
         <app-article *ngFor="let article of articles" [article]="article" (click)="onSelect(article)"></app-article>

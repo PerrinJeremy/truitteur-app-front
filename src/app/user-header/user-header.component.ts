@@ -57,7 +57,7 @@ export class UserHeaderComponent implements OnInit, OnChanges {
     this.id = id;
     this.name = name;
     this.tag = tag;
-    this.banner = banner ? banner : 'https://img.freepik.com/free-photo/empty-sea-beach-background_74190-313.jpg?size=626&ext=jpg&ga=GA1.2.1588707983.1617321600';
+    this.banner = banner;
     this.picture = picture ? picture : 'https://i.pinimg.com/736x/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg';
     this.followers = followers;
     this.following = following;

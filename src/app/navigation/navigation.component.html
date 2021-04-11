@@ -3,15 +3,21 @@
         <div class="nav-container">
             <a class="navbar-brand logo-container" routerLink="/"><img class="logo" src="assets/logo.png" alt=""></a>
             <div class="links">
-                <div>
+                <div class="link-line">
+                    <div class="icon">
+                        <i class="fas fa-home"></i>
+                    </div>
                     <a class="" routerLink="/">Accueil</a>
                 </div>
-                <div *ngIf="isAuthenticated">
+                <div *ngIf="isAuthenticated" class="link-line">
+                    <div class="icon">
+                        <i class="far fa-user"></i>
+                    </div>
                     <a class="" routerLink="/user/{{tag}}">Profil</a>
                 </div>
             </div>
             <div *ngIf="isAuthenticated" class="publish-button">
-                <a class="login-button btn" (click)="openModal('publish')">
+                <a class="register-button btn" (click)="openModal('publish')">
                     <span>Publier</span>
                 </a>
             </div>

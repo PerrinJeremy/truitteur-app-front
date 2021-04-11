@@ -1,7 +1,7 @@
 <div class=header>
     <div class="banner">
         <app-image-loader *ngIf="id===user.id" class="loader" (imageLoadedEvent)="pictureLoaded($event)"></app-image-loader>
-        <img src="{{banner}}" alt="">
+        <img *ngIf='banner' src="{{banner}}" alt="">
     </div>
     <div class="profile-pic">
         <div *ngIf="id===user.id" class="box">
