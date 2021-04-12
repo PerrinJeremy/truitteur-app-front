@@ -10,4 +10,10 @@ export interface Article {
   createdAt: string;
   likes: number;
   comments: number;
+  url: {
+    url: string,
+    img: string,
+    description: string,
+    domain: string
+  }
 }

@@ -6,7 +6,8 @@ import { TokenStorageService } from '../services/token-storage.service';
 import { ArticleService } from '../services/article.service';
 import { UserService } from '../services/user.service';
 import { ModalComponent } from '../modal/modal.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-article',
@@ -27,6 +28,13 @@ export class ArticleComponent implements OnInit {
   isEditable: boolean;
   image: string;
   picture: string;
+  url: {
+    url: string;
+    img: string;
+    description: string;
+    domain: string;
+  };
+  isLoaded: boolean = false
 
   constructor(
     private userService: UserService,
@@ -45,7 +53,8 @@ export class ArticleComponent implements OnInit {
       content,
       createdAt,
       likes,
-      image
+      image,
+      url
     } = this.article;
     this.isEditable = false;
     this.user = this.tokenStorage.getStoredUser();
@@ -54,6 +63,10 @@ export class ArticleComponent implements OnInit {
     this.tag = tag;
     this.createdAt = createdAt;
     this.text = content;
+    if (url) {
+      this.url = url;
+      this.extractUrl()
+    }
     this.likes = likes;
     this.image = image;
     this.userService.getUserProfileByName(this.tag).subscribe(user => {
@@ -61,6 +74,7 @@ export class ArticleComponent implements OnInit {
     })
     if (this.user) { this.liked = this.user.likes.includes(this.article._id); }
     this.computeTime();
+    this.isLoaded = true
   }
 
   computeTime() {
@@ -68,6 +82,12 @@ export class ArticleComponent implements OnInit {
     let hours = Math.round(((new Date()).getTime() - (new Date(this.createdAt)).getTime()) / 3600000);
     let minutes = Math.round(((new Date()).getTime() - (new Date(this.createdAt)).getTime()) / 60000);
     hours >= 24 ? this.computedTime = moment(this.createdAt).format('Do MMM') : hours < 1 ? this.computedTime = minutes + 'min' : this.computedTime = hours + 'h'
+  }
+
+  extractUrl() {
+    let regexUrl = /(https?:\/\/[^ ]*)/
+    let url = this.text.match(regexUrl)[0];    
+    this.text = this.text.split(url)[0] + '<a class="link-article">' + url + '</a>' + this.text.split(url)[1]
   }
 
   likeHandle() {

@@ -5,7 +5,7 @@
         <app-article *ngFor="let article of articles" [article]="article" (click)="onSelect(article)"></app-article>
     </div>
 </div>
-<div class="container-articles">
+<div *ngIf="!isAuthenticated" class="container-articles">
     <img class="logo" src="assets/logo.png" alt="">
     <h2>Bienvenus ! <br/> Veuillez vous connecter pour profiter de truitteur</h2>
 </div>

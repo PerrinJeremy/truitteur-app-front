@@ -22,8 +22,19 @@
                     <button class="save-button btn" (click)="saveModif()">Enregitrer</button>
                 </div>
             </div>
-            <p *ngIf="isEditable == false">{{text}}
-            </p>
+            <p *ngIf="isEditable == false" class="content-article" [innerHTML]="text"></p>
+            <div *ngIf="url" class="url-preview">
+                <a href="{{url.url}}">
+                    <img src="{{url.img}}" alt="">
+                    <div class="url-preview-text">
+                        <p class="domain">{{url.domain | uppercase}}</p>
+                        <div>
+                            <h5>{{url.title}}</h5>
+                            <p>{{url.description}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
         <div class="image-container">
             <img src={{image}} alt="">

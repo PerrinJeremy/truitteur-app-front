@@ -51,6 +51,12 @@
                 width: 100%
             }
         }
+        .content-article {
+            a {
+                cursor: pointer!important;
+                text-decoration: underline!important;
+            }
+        }
         .footer-card {
             display: flex;
             div {
@@ -63,10 +69,6 @@
                 margin-bottom: 0;
             }
         }
-    }
-    
-    .card-article:hover {
-        background-color: rgba($color: #000000, $alpha: 0.03);
     }
     
     .publish {
@@ -100,5 +102,26 @@
             width: 250px;
             display: flex;
             margin: 0 auto;
+        }
+    }
+    
+    .url-preview {
+        border: 1px solid rgb(235, 238, 240);
+        margin-bottom: 10px;
+        cursor: pointer;
+        a {
+            text-decoration: none;
+            color: rgb(33, 37, 41);
+        }
+        .url-preview-text {
+            padding: 10px 12px;
+            background-color: rgb(242, 243, 245);
+            .domain {
+                font-size: 12px;
+                color: #606770
+            }
+            p {
+                margin: 0
+            }
         }
     }
