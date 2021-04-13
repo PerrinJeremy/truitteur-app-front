@@ -5,11 +5,12 @@ import { UserPageComponent } from './user-page/user-page.component';
 import {
   AuthGuardService as AuthGuard
 } from './services/auth-guard.service';
+import { ArticlesComponent } from './articles/articles.component';
 
 const routes: Routes = [
   {
-    path: 'complete-profile',
-    component: CompleteComponent
+    path: '',
+    component: ArticlesComponent
   },
   {
     path: 'user/:name',
