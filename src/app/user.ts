@@ -10,4 +10,5 @@ export interface User {
   banner: string;
   picture: string;
   articles: number;
+  followers: number;
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { User } from '../user';
 import { TokenStorageService } from '../services/token-storage.service';
 import { Router } from '@angular/router';
@@ -13,6 +12,7 @@ import { UserService } from '../services/user.service';
 export class AbonnementsComponent implements OnInit {
 
   @Input() account?: User
+  @ViewChild('previewAccount') private div: ElementRef;
 
   id: string
   name: string
@@ -21,7 +21,8 @@ export class AbonnementsComponent implements OnInit {
   user: User
   isFollowed: boolean
   isAuthenticated: boolean
-
+  isShown: boolean
+  timeout;
   constructor(private tokenStorage: TokenStorageService,
     private userService: UserService,
     private router: Router) { }
@@ -40,6 +41,7 @@ export class AbonnementsComponent implements OnInit {
     if (this.user) { this.isFollowed = this.user.following.includes(this.id); } else {
       this.isFollowed = false
     }
+
   }
 
   follow() {
@@ -63,5 +65,26 @@ export class AbonnementsComponent implements OnInit {
       },
       err => console.log(err)
     );
+  }
+
+  showPreview() {
+    let div = this.div.nativeElement
+    div.style.visibility = 'visible'
+  }
+
+  displayPreview(e: MouseEvent) {
+    let div = this.div.nativeElement    
+    div.style.visibility = 'hidden'
+    div.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.showPreview()
+    }, 500);
+  }
+
+  hidePreview() {
+    clearTimeout(this.timeout);
+    let div = this.div.nativeElement
+    div.style.visibility = 'hidden'
   }
 }

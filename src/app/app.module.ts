@@ -23,6 +23,7 @@ import { ModalComponent } from './modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthGuardService } from './services/auth-guard.service';
 import { HomeComponent } from './home/home.component';
+import { AccountPreviewComponent } from './account-preview/account-preview.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HomeComponent } from './home/home.component';
     UserHeaderComponent,
     PublicationComponent,
     ModalComponent,
-    HomeComponent
+    HomeComponent,
+    AccountPreviewComponent
   ],
   imports: [
     BrowserModule,

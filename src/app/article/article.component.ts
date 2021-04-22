@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Article } from '../article';
 import * as moment from 'moment';
 import { User } from '../user';
@@ -7,7 +7,6 @@ import { ArticleService } from '../services/article.service';
 import { UserService } from '../services/user.service';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-article',
@@ -16,6 +15,8 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class ArticleComponent implements OnInit {
   @Input() article?: Article;
+  @ViewChild('previewAccount') private div: ElementRef;
+  account: User;
   computedTime: string;
   id: string;
   name: string;
@@ -35,6 +36,9 @@ export class ArticleComponent implements OnInit {
     domain: string;
   };
   isLoaded: boolean = false
+  isFollowed: boolean
+  isShown: boolean
+  timeout;
 
   constructor(
     private userService: UserService,
@@ -70,6 +74,7 @@ export class ArticleComponent implements OnInit {
     this.likes = likes;
     this.image = image;
     this.userService.getUserProfileByName(this.tag).subscribe(user => {
+      this.account = user;
       this.picture = user.picture ? user.picture : 'https://i.pinimg.com/736x/3f/94/70/3f9470b34a8e3f526dbdb022f9f19cf7.jpg';
     })
     if (this.user) { this.liked = this.user.likes.includes(this.article._id); }
@@ -86,7 +91,7 @@ export class ArticleComponent implements OnInit {
 
   extractUrl() {
     let regexUrl = /(https?:\/\/[^ ]*)/
-    let url = this.text.match(regexUrl)[0];    
+    let url = this.text.match(regexUrl)[0];
     this.text = this.text.split(url)[0] + '<a class="link-article">' + url + '</a>' + this.text.split(url)[1]
   }
 
@@ -117,7 +122,6 @@ export class ArticleComponent implements OnInit {
   }
   openModal(type: string, id: string) {
     const dialogConfig = new MatDialogConfig();
-    // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
     dialogConfig.data = { type: type, id: id };
     dialogConfig.autoFocus = true
@@ -128,10 +132,59 @@ export class ArticleComponent implements OnInit {
     this.isEditable = !this.isEditable;
   }
 
+  extractContent(text: string) {
+    var span = document.createElement('span');
+    span.innerHTML = text;
+    return span.textContent || span.innerText;
+  }
+
+  follow() {
+    if (this.user) {
+      this.userService.follow(this.id).subscribe(
+        user => {
+          this.isFollowed = true
+          return this.tokenStorage.saveUser(user);
+        },
+        err => console.log(err)
+      );
+    }
+  }
+  unfollow() {
+    this.userService.unfollow(this.id).subscribe(
+      user => {
+        this.isFollowed = false
+        return this.tokenStorage.saveUser(user);
+      },
+      err => console.log(err)
+    );
+  }
+
   saveModif() {
-    this.article.content = this.text;
+    let text = this.extractContent(this.text)
+    this.article.content = text;
     this.articleService.updateArticle(this.article).subscribe(() => {
       this.isEditable = false
     }, err => console.log((err)))
+  }
+
+  showPreview() {
+    let div = this.div.nativeElement
+    div.style.visibility = 'visible'
+  }
+
+  displayPreview(e: MouseEvent) {
+    let div = this.div.nativeElement    
+    div.style.visibility = 'hidden'
+    div.style.transform = `translate(${e.pageX}px, ${e.pageY}px)`;
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.showPreview()
+    }, 500);
+  }
+
+  hidePreview() {
+    clearTimeout(this.timeout);
+    let div = this.div.nativeElement
+    div.style.visibility = 'hidden'
   }
 }

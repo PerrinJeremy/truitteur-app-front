@@ -2,7 +2,7 @@
     display: inline-flex;
     width: 100%;
     padding: 10px;
-    border: 1px solid #ebeef0;
+    border-bottom: 1px solid #ebeef0;
     border-top: 0;
 }
 
@@ -10,11 +10,16 @@
     display: flex;
     align-content: flex-end;
     border: 1px solid rgb(29, 161, 242);
+    outline: 0 none;
     margin: 5px;
     color: rgb(29, 161, 242);
     background-color: white;
     border-radius: 19px;
     font-weight: 700;
+}
+
+.follow-button:hover {
+    background-color: rgba(29, 161, 242, 0.1);
 }
 
 .followed-button {
@@ -24,6 +29,10 @@
     color: white;
     border-radius: 19px;
     font-weight: 700;
+}
+
+.followed-button:hover {
+    background-color: rgb(202, 32, 85);
 }
 
 .header-card {
@@ -52,4 +61,11 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+}
+
+#preview-account {
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
 }

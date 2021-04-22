@@ -1,16 +1,22 @@
 .sidebar-container {
-    border: 1px solid #ebeef0;
     height: 100%;
     width: 350px;
+    padding: 12px;
     .header {
         font-size: 24px;
         font-weight: 700;
         border-bottom: 1px solid #ebeef0;
         margin: 0;
-        padding: 5px;
+        padding: 12px 15px;
     }
 }
 
 .table-abonnement {
     padding: calc(var(--bs-gutter-x)/ 2) 0;
+    background-color: rgb(247, 249, 250);
+    border-radius: 15px;
+}
+
+.footer-abonnement {
+    height: 15px;
 }

@@ -1,4 +1,4 @@
-<div class="user-follow">
+<div class="user-follow" (mouseover)="displayPreview($event)" (mouseout)="hidePreview()">
     <div class="avatar">
         <img src="{{picture}}">
     </div>
@@ -14,8 +14,12 @@
         <button *ngIf="isFollowed == false" class="follow-button btn" (click)="follow()" type="button">
             <span>Suivre</span>
         </button>
-        <button *ngIf="isFollowed" class="followed-button btn" (click)="unfollow()" type="button">
-            <span>Abonné</span>
+        <button *ngIf="isFollowed" class="followed-button btn" (mouseover)="changeText=true" (mouseout)="changeText=false" (click)="unfollow()" type="button">
+            <span *ngIf="!changeText">Abonné</span>
+            <span *ngIf="changeText">Se désabonner</span>
         </button>
     </div>
+</div>
+<div #previewAccount id="preview-account">
+    <app-account-preview [account]="account"></app-account-preview>
 </div>

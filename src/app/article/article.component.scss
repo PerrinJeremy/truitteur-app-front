@@ -112,9 +112,13 @@
             text-decoration: none;
             color: rgb(33, 37, 41);
         }
+        img {
+            width: 100%;
+            height: auto;
+        }
         .url-preview-text {
             padding: 10px 12px;
-            background-color: rgb(242, 243, 245);
+            background-color: rgb(247, 249, 250);
             .domain {
                 font-size: 12px;
                 color: #606770
@@ -123,4 +127,11 @@
                 margin: 0
             }
         }
+    }
+    
+    #preview-account {
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+        left: 0;
     }

@@ -1,9 +1,9 @@
 <div class="card-article">
-    <div class="avatar">
+    <div class="avatar" (mouseover)="displayPreview($event)" (mouseout)="hidePreview()">
         <img src="{{picture}}">
     </div>
     <div class="card-content">
-        <div class="header-line">
+        <div class="header-line" (mouseover)="displayPreview($event)" (mouseout)="hidePreview()">
             <div class="header-card" routerLink="/user/{{tag}}">
                 <span class="name">{{name}}</span>
                 <span class="tag">@{{tag}}</span>
@@ -48,4 +48,7 @@
             </div>
         </div>
     </div>
+</div>
+<div #previewAccount id="preview-account">
+    <app-account-preview *ngIf="account" [account]="account"></app-account-preview>
 </div>

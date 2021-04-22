@@ -1,10 +1,11 @@
-<div class="container sidebar-container">
-    <div class="row table-abonnement">
+<div class="sidebar-container">
+    <div class="table-abonnement">
         <div>
             <p class="header">
                 Vous pourriez aimer
             </p>
         </div>
         <app-abonnements *ngFor="let account of accounts" [account]="account"></app-abonnements>
+        <div class="footer-abonnement"></div>
     </div>
 </div>

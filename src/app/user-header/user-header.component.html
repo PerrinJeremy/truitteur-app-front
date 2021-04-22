@@ -10,13 +10,16 @@
                 <i class="far fa-image"></i>
             </label>
         </div>
-        <img src="{{picture}}" alt="">
+        <div class="picture-container">
+            <img src="{{picture}}" alt="">
+        </div>
         <div class="button-container">
             <button *ngIf="isFollowed == false" class="follow-button btn" (click)="follow()" type="button">
                 <span>Suivre</span>
             </button>
-            <button *ngIf="isFollowed" class="followed-button btn" (click)="unfollow()" type="button">
-                <span>Abonné</span>
+            <button *ngIf="isFollowed" class="followed-button btn" (mouseover)="changeText=true" (mouseout)="changeText=false" (click)="unfollow()" type="button">
+                <span *ngIf="!changeText">Abonné</span>
+                <span *ngIf="changeText">Se désabonner</span>
             </button>
         </div>
     </div>

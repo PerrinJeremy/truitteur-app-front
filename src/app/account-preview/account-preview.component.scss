@@ -1,0 +1,88 @@
+.preview-card-container {
+    width: 300px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: rgb(101 119 134 / 20%) 0px 0px 15px, rgb(101 119 134 / 15%) 0px 0px 3px 1px;
+    .preview-card-header {
+        display: inline-flex;
+        width: 100%;
+        justify-content: space-between;
+        .avatar {
+            height: 100%;
+            margin-right: 10px;
+            img {
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.preview-card-name {
+    span {
+        display: flex;
+        line-height: 18px;
+    }
+    font-size: 14px;
+    .name {
+        font-weight: 700;
+    }
+}
+
+.preview-card-footer {
+    display: inline-flex;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 14px;
+    p {
+        display: flex;
+        font-weight: 700;
+        margin-bottom: 0;
+        span {
+            padding-left: 5px;
+            font-weight: 400;
+        }
+    }
+}
+
+.follower {
+    margin-right: 20px;
+}
+
+.follow-button {
+    display: flex;
+    align-content: flex-end;
+    border: 1px solid rgb(29, 161, 242);
+    margin: 5px;
+    color: rgb(29, 161, 242);
+    background-color: white;
+    border-radius: 19px;
+    font-weight: 700;
+}
+
+.followed-button {
+    border: 1px solid white;
+    margin: 5px;
+    background-color: rgb(29, 161, 242);
+    color: white;
+    border-radius: 19px;
+    font-weight: 700;
+}
+
+.followed-button:hover {
+    background-color: rgb(202, 32, 85);
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    button {
+        height: 38px;
+        display: flex;
+    }
+}
